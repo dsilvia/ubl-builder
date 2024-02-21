@@ -35,6 +35,7 @@ import { CorporateRegistrationScheme } from './CorporateRegistrationScheme';
 const ParamsMap: IGenericKeyValue<ParamsMapValues> = {
   registrationName: { order: 1, attributeName: 'cbc:RegistrationName', min: 0, max: 1, classRef: UdtName },
   companyID: { order: 2, attributeName: 'cbc:CompanyID', min: 0, max: 1, classRef: UdtIdentifier },
+  companyLegalForm: { order: 6, attributeName: 'cbc:CompanyLegalForm', min: 0, max: 1, classRef: UdtName },
   corporateRegistrationScheme: {
     order: 12,
     attributeName: 'cac:CorporateRegistrationScheme',
@@ -47,6 +48,7 @@ const ParamsMap: IGenericKeyValue<ParamsMapValues> = {
 type AllowedParams = {
   registrationName: string | UdtName;
   companyID: string | UdtIdentifier;
+  companyLegalForm?: string | UdtName;
   corporateRegistrationScheme?: CorporateRegistrationScheme;
 };
 
