@@ -3,6 +3,7 @@ import { UdtText, UdtQuantity, UdtIndicator, UdtName, UdtIdentifier } from '../t
 import { UdtNumeric } from '../types/UnqualifiedDataTypes/UdtNumeric';
 import { SellersItemIdentification } from './SellersItemIdentification';
 import { ClassifiedTaxCategory } from './TaxCategoryTypeGroup';
+import { CommodityClassification } from './CommodityClassification';
 
 /*
     1   cbc:Description [0..*]    Text describing this item.
@@ -69,6 +70,13 @@ const ParamsMap: IGenericKeyValue<ParamsMapValues> = {
     max: 1,
     classRef: SellersItemIdentification,
   },
+  commodityClassifications: {
+    order: 20,
+    attributeName: 'cac:CommodityClassification',
+    min: 0,
+    max: undefined,
+    classRef: CommodityClassification,
+  },
   classifiedTaxCategory: {
     order: 23,
     attributeName: 'cac:ClassifiedTaxCategory',
@@ -93,6 +101,7 @@ type AllowedParams = {
   brandName?: string | UdtName;
   modelName?: string | UdtName;
   sellersItemIdentification: SellersItemIdentification;
+  commodityClassifications?: CommodityClassification[];
   classifiedTaxCategory: ClassifiedTaxCategory;
 };
 
