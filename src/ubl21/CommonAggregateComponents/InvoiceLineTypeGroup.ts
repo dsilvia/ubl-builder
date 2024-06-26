@@ -15,6 +15,7 @@ import { TaxTotal, WithholdingTaxTotal } from './TaxTotalTypeGroup';
 import { Item } from './ItemTypeGroup';
 import { Price } from './PriceTypeGroup';
 import { DeliveryTerms } from './DeliveryTerms';
+import { AllowanceCharge } from './AllowanceChargeTypeGroup';
 
 /*
   1    cbc:ID [1..1]    An identifier for this invoice line.
@@ -105,7 +106,7 @@ const ParamsMap: IGenericKeyValue<ParamsMapValues> = {
   originatorParty: { order: 18, attributeName: 'cac:OriginatorParty', min: 0, max: undefined, classRef: Party },
   delivery: { order: 19, attributeName: 'cac:Delivery', min: 0, max: undefined, classRef: Delivery },
   paymentTerms: { order: 20, attributeName: 'cac:PaymentTerms', min: 0, max: undefined, classRef: PaymentTerms },
-  // allowanceCharges: { order: 21,  attributeName: 'cac:AllowanceCharge', min: 0, max: undefined, classRef: AllowanceCharge },
+  allowanceCharges: { order: 21,  attributeName: 'cac:AllowanceCharge', min: 0, max: undefined, classRef: AllowanceCharge },
   taxTotals: { order: 22, attributeName: 'cac:TaxTotal', min: 0, max: undefined, classRef: TaxTotal },
   withholdingTaxTotal: {
     order: 23,
@@ -141,7 +142,7 @@ type AllowedParams = {
   originatorParty?: Party;
   delivery?: Delivery;
   paymentTerms?: PaymentTerms;
-  // allowanceCharges: "",
+  allowanceCharges?: AllowanceCharge[];
   taxTotals?: TaxTotal[];
   withholdingTaxTotal?: WithholdingTaxTotal[];
   item: Item; // Mandatory
