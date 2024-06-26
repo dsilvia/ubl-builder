@@ -58,7 +58,7 @@ type AllowedParams = {
   /* 	Seller city. The common name of the city, town or village, where the Seller address is located. Example value: London */
   cityName: string | UdtText;
   /* Seller post code. The identifier for an addressable group of properties according to the relevant postal service. Example value: W1G 8LZ */
-  postalZone: string | UdtText;
+  postalZone?: string | UdtText;
   /* Seller country subdivision. The subdivision of a country. Example value: Region A */
   countrySubentity?: string | UdtText;
   /* ADDRESS LINE */

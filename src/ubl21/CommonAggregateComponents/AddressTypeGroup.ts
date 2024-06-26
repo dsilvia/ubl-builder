@@ -25,6 +25,7 @@ const ParamsMap: IGenericKeyValue<ParamsMapValues> = {
   /** 5.  cbc:Floor [0..1]    An identifiable floor of a building. */
   /** 6.  cbc:Room [0..1]    An identifiable room, suite, or apartment of a building. */
   /** 7.  cbc:StreetName [0..1]    The name of the street, road, avenue, way, etc. to which the number of the building is attached. */
+  streetName: { order: 7, attributeName: 'cbc:StreetName', min: 0, max: 1, classRef: UdtText },
   /** 8.  cbc:AdditionalStreetName [0..1]    An additional street name used to further clarify the address. */
   /** 9.  cbc:BlockName [0..1]    The name of the block (an area surrounded by streets and usually containing several buildings) in which this address is located. */
   /** 10  cbc:BuildingName [0..1]    The name of a building. */
@@ -63,6 +64,8 @@ type AllowedParams = {
   countrySubentityCode?: string | UdtText;
   /** An unstructured address line */
   addressLines?: AddressLine[];
+  /** Street name/Address line 1. The main address line in an address. Example value: Main Street 1 */
+  streetName?: string | UdtText;
   /**  The country in which this address is situated */
   country?: Country;
   // ##################################  TODO CAC MISSING ################################################

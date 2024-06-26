@@ -4,6 +4,8 @@ import { UdtNumeric } from '../types/UnqualifiedDataTypes/UdtNumeric';
 import { SellersItemIdentification } from './SellersItemIdentification';
 import { ClassifiedTaxCategory } from './TaxCategoryTypeGroup';
 import { CommodityClassification } from './CommodityClassification';
+import { StandardItemIdentification } from './StandardItemIdentification';
+import { BuyersItemIdentification } from './BuyersItemIdentification';
 
 /*
     1   cbc:Description [0..*]    Text describing this item.
@@ -63,12 +65,26 @@ const ParamsMap: IGenericKeyValue<ParamsMapValues> = {
   keywords: { order: 8, attributeName: 'cbc:Keyword', min: 0, max: undefined, classRef: UdtText },
   brandName: { order: 9, attributeName: 'cbc:BrandName', min: 0, max: undefined, classRef: UdtName },
   modelName: { order: 10, attributeName: 'cbc:ModelName', min: 0, max: undefined, classRef: UdtName },
+  buyersItemIdentification: {
+    order: 11,
+    attributeName: 'cac:BuyersItemIdentification',
+    min: 0,
+    max: 1,
+    classRef: BuyersItemIdentification,
+  },
   sellersItemIdentification: {
     order: 12,
     attributeName: 'cac:SellersItemIdentification',
     min: 0,
     max: 1,
     classRef: SellersItemIdentification,
+  },
+  standardItemIdentification: {
+    order: 14,
+    attributeName: 'cac:StandardItemIdentification',
+    min: 0,
+    max: 1,
+    classRef: StandardItemIdentification,
   },
   commodityClassifications: {
     order: 20,
@@ -100,7 +116,9 @@ type AllowedParams = {
   /** @type {UdtName} */
   brandName?: string | UdtName;
   modelName?: string | UdtName;
-  sellersItemIdentification: SellersItemIdentification;
+  buyersItemIdentification?: BuyersItemIdentification;
+  sellersItemIdentification?: SellersItemIdentification;
+  standardItemIdentification?: StandardItemIdentification;
   commodityClassifications?: CommodityClassification[];
   classifiedTaxCategory: ClassifiedTaxCategory;
 };
